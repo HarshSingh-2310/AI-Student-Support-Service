@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Student Assistant</title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+
+    <div class="circle c1"></div>
+
+    <div class="circle c2"></div>
+
+    <div class="circle c3"></div>
+
+    <!-- ========================= -->
+
+    <!-- NAVBAR -->
+
+    <!-- ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <span>AI Student Assistant</span>
+
+        </div>
+
+        <ul>
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#features">Features</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ========================= -->
+
+    <!-- HERO SECTION -->
+
+    <!-- ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <span class="badge">
+
+                Powered by Generative AI
+
+            </span>
+
+            <h1>
+
+                AI Student Assistant
+
+            </h1>
+
+            <h2>
+
+                Your Personal AI Learning Companion
+
+            </h2>
+
+            <p>
+
+                Learn faster with an intelligent AI assistant that can answer
+                your academic questions, summarize notes, generate quizzes,
+                write professional emails and prepare smart study plans.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/chat">
+
+<button class="primary-btn">
+
+<i class="fa-solid fa-comments"></i>
+
+Start Chat
+
+</button>
+
+</a>
+
+            <a href="/about">
+
+<button class="secondary-btn">
+
+About Me
+
+</button>
+
+</a>    
+
+            </div>
+
+            <div class="stats">
+
+                <div class="stat-box">
+
+                    <h3>24/7</h3>
+
+                    <span>Availability</span>
+
+                </div>
+
+                <div class="stat-box">
+
+                    <h3>6</h3>
+
+                    <span>Smart Modules</span>
+
+                </div>
+
+                <div class="stat-box">
+
+                    <h3>99%</h3>
+
+                    <span>Accuracy</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img src="{{ url_for('static', filename='images/ai_robot.png') }}"
+                alt="AI Robot">
+
+        </div>
+
+    </section>
+<!-- ========================= -->
+<!-- DASHBOARD -->
+<!-- ========================= -->    
+<div class="dashboard-card">
+
+    <h2>Dashboard Statistics</h2>
+
+    <div class="stats-grid">
+
+        <div class="stat-box">
+
+            <h3 id="totalRequests">0</h3>
+
+            <p>Total Requests</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3>6</h3>
+
+            <p>AI Tools</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="summaryCount">0</h3>
+
+            <p>Summaries</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="quizCountStat">0</h3>
+
+            <p>Quizzes</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="emailCount">0</h3>
+
+            <p>Emails</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="plannerCount">0</h3>
+
+            <p>Study Plans</p>
+
+        </div>
+
+        <div class="stat-box">
+
+            <h3 id="assignmentCount">0</h3>
+
+            <p>Assignments</p>
+
+        </div>
+
+    </div>
+
+</div>    
+    <!-- ========================= -->
+
+    <!-- FEATURES -->
+
+    <!-- ========================= -->
+
+    <section class="features" id="features">
+
+        <h2>
+
+            Powerful AI Features
+
+        </h2>
+
+        <p>
+
+            Everything you need in one smart dashboard.
+
+        </p>
+
+        <div class="feature-container">
+
+           <div class="feature-card"
+     onclick="window.location.href='/chat'">
+
+    <i class="fa-solid fa-comments"></i>
+
+    <h3>AI Chatbot</h3>
+
+    <p>
+        Ask questions instantly.
+    </p>
+
+</div>
+
+         <div class="feature-card"
+     onclick="window.location.href='/summary'">
+
+    <i class="fa-solid fa-file-lines"></i>
+
+    <h3>Notes Summarizer</h3>
+
+    <p>
+        Summarize long notes in seconds.
+    </p>
+
+</div>  
+
+            <div class="feature-card"
+     onclick="window.location.href='/quiz'">
+
+                <i class="fa-solid fa-list-check"></i>
+
+                <h3>Quiz Generator</h3>
+
+                <p>
+
+                    Generate MCQs automatically.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card"
+     onclick="window.location.href='/email'">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <h3>Email Writer</h3>
+
+                <p>
+
+                    Generate professional emails.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card"
+     onclick="window.location.href='/planner'">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                <h3>Study Planner</h3>
+
+                <p>
+
+                    Build a smart study schedule.
+
+                </p>
+
+            </div>
+
+            <div class="feature-card"
+     onclick="window.location.href='/assignment'">
+
+                <i class="fa-solid fa-book-open"></i>
+
+<h3>Assignment Helper</h3>
+
+<p>
+    Generate structured assignments instantly.
+</p>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ========================= -->
+    <!-- ABOUT SECTION -->
+    <!-- ========================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-image">
+
+            <img src="{{ url_for('static', filename='images/AIpic2.jpeg') }}" alt="AI Assistant">
+
+        </div>
+
+        <div class="about-content">
+
+            <span class="section-tag">About AI Student Assistant</span>
+
+            <h2>
+                Built to Help Students Learn Smarter
+            </h2>
+
+            <p>
+
+                AI Student Assistant is an intelligent web application powered
+                by Generative AI. It assists students in solving doubts,
+                summarizing notes, generating quizzes, creating professional
+                emails, and organizing study schedules — all from one place.
+
+            </p>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <h3>Fast</h3>
+
+                    <p>
+
+                        Get responses within seconds.
+
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <h3>Secure</h3>
+
+                    <p>
+
+                        Your data stays protected.
+
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <h3>Student Friendly</h3>
+
+                    <p>
+
+                        Designed especially for learners.
+
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    <h3>AI Powered</h3>
+
+                    <p>
+
+                        Uses modern Generative AI.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- CONTACT SECTION -->
+    <!-- ========================= -->
+
+    <section class="contact" id="contact">
+
+    <div class="contact-title">
+
+        <span>Feedback Center</span>
+
+        <h2>Help Us Improve</h2>
+
+        <p>
+            Found a bug, have a suggestion or want a new feature?
+            We'd love to hear your feedback.
+        </p>
+
+    </div>
+
+    <form class="contact-form" id="feedbackForm">
+
+        <div class="input-row">
+
+            <input
+                type="text"
+                id="feedbackName"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                id="feedbackEmail"
+                placeholder="Your Email"
+                required>
+
+        </div>
+
+        <input
+            type="text"
+            id="feedbackSubject"
+            placeholder="Subject"
+            required>
+
+        <textarea
+            id="feedbackMessage"
+            placeholder="Share your feedback..."
+            required></textarea>
+
+        <button type="submit">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            Submit Feedback
+
+        </button>
+
+        <p id="feedbackStatus"></p>
+
+    </form>
+
+</section>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+
+                <h2>
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    AI Student Assistant
+
+                </h2>
+
+                <p>
+
+                    Your Personal AI Learning Companion powered by
+                    Generative AI.
+
+                </p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>
+
+                    Quick Links
+
+                </h3>
+
+                <ul>
+
+                    <li><a href="#">Home</a></li>
+
+                    <li><a href="#features">Features</a></li>
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>
+
+                    AI Tools
+
+                </h3>
+
+                <ul>
+
+                    <li>AI Chatbot</li>
+
+                    <li>Summarizer</li>
+
+                    <li>Quiz Generator</li>
+
+                    <li>Email Writer</li>
+
+                    <li>Study Planner</li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h3>
+
+                    Follow Us
+
+                </h3>
+
+                <div class="social-icons">
+
+                    <a href="#"><i class="fab fa-github"></i></a>
+
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copyright">
+
+            © 2026 AI Student Assistant | Developed by Harsh
+
+        </p>
+
+    </footer>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>    

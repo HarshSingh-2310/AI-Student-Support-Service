@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Study Planner</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+{% include 'background.html' %}
+
+<div class="summary-container">
+
+    <div class="summary-header">
+
+        <a href="/" class="back-home">← Home</a>
+
+        <h2>📅 AI Study Planner</h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>Study Details</h3>
+
+        <textarea
+            id="plannerSubjects"
+            placeholder="Enter subjects separated by commas
+
+Example:
+Python, DBMS, Java, Operating System"
+            rows="5"></textarea>
+
+        <label>Start Date</label>
+
+<input
+    type="date"
+    id="plannerStartDate">
+        <label>Exam Date</label>
+        <input
+            type="date"
+            id="plannerDate">
+
+        <input
+            type="number"
+            id="plannerHours"
+            min="1"
+            max="12"
+            placeholder="Hours Available Per Day">
+
+        <select id="plannerLevel">
+
+            <option>Beginner</option>
+
+            <option>Intermediate</option>
+
+            <option>Advanced</option>
+
+        </select>
+
+        <button id="generatePlannerBtn">
+
+            Generate Study Plan
+
+        </button>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>📅 Your Study Plan</h3>
+
+        <div id="plannerOutput" class="quiz-box">
+
+            Your AI study plan will appear here...
+
+        </div>
+
+        <button
+            id="copyPlannerBtn"
+            class="quiz-btn"
+            style="display:none;">
+
+            📋 Copy Study Plan
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

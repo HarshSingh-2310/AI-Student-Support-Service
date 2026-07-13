@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Summarizer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+{% include 'background.html' %}
+<div class="summary-container">
+    
+    <!-- Header -->
+
+    <div class="summary-header">
+
+        <a href="/" class="back-home">← Home</a>
+
+        <h2>📄 AI Notes Summarizer</h2>
+
+    </div>
+
+    <!-- Main Card -->
+
+    <div class="summary-card">
+
+        <h3>📝 Paste Your Notes</h3>
+
+        <textarea
+            id="notesInput"
+            placeholder="Paste your notes here..."
+            ></textarea>
+
+        <button id="summarize-btn">
+            Summarize Notes
+        </button>
+
+    </div>
+
+    <!-- Output -->
+
+    <div class="summary-card">
+
+        <h3>📄 AI Generated Summary</h3>
+
+        <div id="summary-output">
+
+            Your summarized notes will appear here...
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

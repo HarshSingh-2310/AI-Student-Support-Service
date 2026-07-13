@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+{% include 'background.html' %}
+
+<div class="summary-container">
+
+    <div class="summary-header">
+
+        <a href="/" class="back-home">← Home</a>
+
+        <h2>📝 AI Quiz Generator</h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>Enter Quiz Details</h3>
+
+        <input
+            type="text"
+            id="quizTopic"
+            placeholder="Enter topic (Example: Python, DBMS, Java...)">
+
+        <select id="quizDifficulty">
+
+            <option>Beginner</option>
+
+            <option>Intermediate</option>
+
+            <option>Advanced</option>
+
+        </select>
+
+        <select id="quizCount">
+
+            <option>5</option>
+
+            <option>10</option>
+
+            <option>15</option>
+
+        </select>
+
+        <button id="generateQuizBtn">
+
+            Generate Quiz
+
+        </button>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>📘 Generated Quiz</h3>
+
+<div id="quizOutput" class="quiz-box">
+
+Waiting for quiz...
+</div>
+
+<button
+id="showAnswersBtn"
+style="display:none;"
+class="quiz-btn">
+
+📑 Show Answer Key
+
+</button>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

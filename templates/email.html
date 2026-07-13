@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Email Writer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+{% include 'background.html' %}
+
+<div class="summary-container">
+
+    <div class="summary-header">
+
+        <a href="/" class="back-home">← Home</a>
+
+        <h2>📧 AI Email Writer</h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>Email Details</h3>
+
+        <input
+            type="text"
+            id="emailPurpose"
+            placeholder="Purpose (Example: Leave Application, Internship Request)">
+
+        <input
+            type="text"
+            id="emailRecipient"
+            placeholder="Recipient (Professor, HR Manager, Principal...)">
+
+        <input
+            type="text"
+            id="emailSubject"
+            placeholder="Subject">
+
+        <textarea
+            id="emailDetails"
+            placeholder="Describe what you want to write..."
+            rows="8"></textarea>
+
+        <button id="generateEmailBtn">
+
+            Generate Email
+
+        </button>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>Generated Email</h3>
+
+        <div id="emailOutput" class="quiz-box">
+
+            Your generated email will appear here...
+
+        </div>
+        <button id="copyEmailBtn" class="quiz-btn" style="display:none;">
+
+    Copy Email
+
+</button>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

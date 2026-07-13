@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Student Assistant Chat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="sidebar-header">
+
+           <img src="{{ url_for('static', filename='images/ailogo.png') }}" class="sidebar-logo">
+
+    <h2>AI Student Assistant</h2>
+
+    <p class="sidebar-subtitle">
+
+        Powered by Gemini AI
+
+    </p>
+
+        </div>
+
+        <button class="new-chat" onclick="newChat()">
+
+            <i class="fa-solid fa-plus"></i>
+
+            New Chat
+
+        </button>
+        <hr class="sidebar-line">
+
+        <div class="history-title">
+
+            Recent Chats
+
+        </div>
+
+        <div class="history">
+
+            <div class="history-item">
+
+                <i class="fa-solid fa-message"></i>
+
+                Welcome Chat
+
+            </div>
+
+            <div class="history-item">
+
+                <i class="fa-solid fa-message"></i>
+
+                Python Help
+
+            </div>
+
+            <div class="history-item">
+
+                <i class="fa-solid fa-message"></i>
+
+                Exam Preparation
+
+            </div>
+
+        </div>
+        <div class="sidebar-footer">
+
+    Version 1.0
+
+</div>
+    </div>
+
+    <!-- Main Chat -->
+
+    <div class="chat-main">
+
+        <div class="chat-header">
+
+            <a href="/" class="back-home">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Home
+
+    </a>
+
+    <div class="chat-title">
+
+        🤖 AI Student Assistant
+
+        <span class="online">
+
+            🟢 Online
+
+        </span>
+
+    </div>
+
+        </div>
+
+        <div class="chat-box" id="chat-box">
+
+            <div class="welcome-screen">
+
+        <img src="{{ url_for('static', filename='images/ailogo.png') }}"
+             class="welcome-logo">
+
+        <h1>AI Student Assistant</h1>
+
+        <p>Your Personal AI Learning Companion</p>
+
+        <div class="suggestions">
+
+           <button onclick="quickPrompt('Explain Python loops with simple examples for beginners.')">
+        💻 Explain Python Loops
+    </button>
+
+    <button onclick="quickPrompt('Summarize the following notes in simple language.')">
+        📄 Summarize My Notes
+    </button>
+
+    <button onclick="quickPrompt('Generate a 5-question multiple choice quiz.')">
+        📝 Generate Quiz
+    </button>
+
+    <button onclick="quickPrompt('Create a 7-day study plan for my exams.')">
+        📅 Create Study Plan
+    </button>
+
+        </div>
+
+    </div>
+        </div>
+
+        <div class="chat-input">
+
+            <input
+            type="text"
+id="user-input"
+placeholder="Ask AI Student Assistant anything...">
+
+            <button onclick="sendMessage()">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+function newChat(){
+
+    document.getElementById("chat-box").innerHTML = `
+
+    <div class="welcome-screen">
+
+        <img src="/static/images/ailogo.png" class="welcome-logo">
+
+        <h1>AI Student Assistant</h1>
+
+        <p>Your Personal AI Learning Companion</p>
+
+        <div class="suggestions">
+
+            <button onclick="quickPrompt('Explain Python loops with simple examples for beginners.')">
+                💻 Explain Python Loops
+            </button>
+
+            <button onclick="quickPrompt('Summarize the following notes in simple language.')">
+                📄 Summarize My Notes
+            </button>
+
+            <button onclick="quickPrompt('Generate a 5-question multiple choice quiz.')">
+                📝 Generate Quiz
+            </button>
+
+            <button onclick="quickPrompt('Create a 7-day study plan for my exams.')">
+                📅 Create Study Plan
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}    
+function quickPrompt(prompt){
+
+    document.getElementById("user-input").value = prompt;
+
+    sendMessage();
+
+}
+async function sendMessage(){
+
+    let input=document.getElementById("user-input");
+
+    let message=input.value.trim();
+
+    if(message==="") return;
+
+    const chatBox=document.querySelector(".chat-box");
+        if(chatBox.querySelector(".welcome-screen")){
+    chatBox.innerHTML = "";
+}
+    chatBox.innerHTML+=`
+    <div class="user-message">
+        <div class="message">
+            <p>${message}</p>
+        </div>
+    </div>
+    `;
+
+    input.value="";
+    const thinking = document.createElement("div");
+
+thinking.className = "bot-message";
+
+thinking.id = "thinking";
+
+thinking.innerHTML = `
+<div class="avatar">
+🤖
+</div>
+
+<div class="message">
+<p>Thinking...</p>
+</div>
+`;
+
+chatBox.appendChild(thinking);
+
+chatBox.scrollTop = chatBox.scrollHeight;
+    const response=await fetch("/ask",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            message:message
+        })
+
+    });
+    document.getElementById("thinking").remove();
+    const data=await response.json();
+
+    chatBox.innerHTML += `
+<div class="bot-message">
+
+<div class="avatar">
+
+<img src="/static/images/ailogo.png"
+class="chat-avatar">
+
+</div>
+
+<div class="message">
+
+<p>${data.reply}</p>
+
+</div>
+
+</div>
+`;
+
+    chatBox.scrollTop=chatBox.scrollHeight;
+
+}
+document.getElementById("user-input").addEventListener("keypress", function(event){
+
+    if(event.key === "Enter"){
+
+        event.preventDefault();
+
+        sendMessage();
+
+    }
+
+});
+</script>
+</body>
+
+</html>

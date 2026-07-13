@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Assignment Helper</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+{% include 'background.html' %}
+
+<div class="summary-container">
+
+    <div class="summary-header">
+
+        <a href="/" class="back-home">← Home</a>
+
+        <h2>📝 AI Assignment Helper</h2>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>Assignment Details</h3>
+
+        <input
+            type="text"
+            id="assignmentTopic"
+            placeholder="Enter Assignment Topic">
+
+        <input
+            type="text"
+            id="assignmentSubject"
+            placeholder="Subject">
+            
+        <select id="assignmentType">
+
+        <option>Essay</option>
+
+        <option>Report</option>
+
+        <option>Short Note</option>
+
+        </select>
+        <select id="assignmentWords">
+
+            <option>300</option>
+
+            <option>500</option>
+
+            <option>1000</option>
+
+        </select>
+
+        <select id="assignmentLevel">
+
+            <option>School</option>
+
+            <option>College</option>
+
+            <option>University</option>
+
+        </select>
+
+        <button id="generateAssignmentBtn">
+
+            Generate Assignment
+
+        </button>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>📄 Generated Assignment</h3>
+
+        <div id="assignmentOutput" class="quiz-box">
+
+            Your assignment will appear here...
+
+        </div>
+
+        <button
+            id="copyAssignmentBtn"
+            class="quiz-btn"
+            style="display:none;">
+
+            📋 Copy Assignment
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
