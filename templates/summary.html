@@ -7,22 +7,18 @@
     <title>Notes Summarizer</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/feature-navbar.css') }}">
 </head>
 
 <body>
 {% include 'background.html' %}
-<div class="summary-container">
+
     
-    <!-- Header -->
-
-    <div class="summary-header">
-
-        <a href="/" class="back-home">← Home</a>
-
-        <h2>📄 AI Notes Summarizer</h2>
-
-    </div>
-
+{% set title = "📄 AI Notes Summarizer" %}
+{% set home_link = "/#features" %}
+{% include "feature_header.html" %}
+<div class="summary-container">
     <!-- Main Card -->
 
     <div class="summary-card">

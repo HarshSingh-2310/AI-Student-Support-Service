@@ -17,21 +17,18 @@
 
     <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/feature-navbar.css') }}">
 </head>
 
 <body>
 
 {% include 'background.html' %}
+{% set title = "Meet the Developer" %}
+{% set home_link = "/" %}
+{% include "feature_header.html" %}
 
 <div class="developer-container">
-
-    <a href="/" class="back-home">
-
-        ← Home
-
-    </a>
-
     <div class="developer-hero">
 
         <!-- Left -->

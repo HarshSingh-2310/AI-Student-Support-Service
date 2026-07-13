@@ -8,22 +8,20 @@
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+href="{{ url_for('static', filename='css/feature-navbar.css') }}">
 </head>
 
 <body>
 
 {% include 'background.html' %}
 
+
+
+{% set title = "📝 AI Quiz Generator" %}
+{% set home_link = "/#features" %}
+{% include "feature_header.html" %}
 <div class="summary-container">
-
-    <div class="summary-header">
-
-        <a href="/" class="back-home">← Home</a>
-
-        <h2>📝 AI Quiz Generator</h2>
-
-    </div>
-
     <div class="summary-card">
 
         <h3>Enter Quiz Details</h3>
