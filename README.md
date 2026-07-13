@@ -173,24 +173,9 @@ http://127.0.0.1:5000
 
 **Render Deployment**
 
-👉 **https://YOUR-RENDER-URL.onrender.com**
-
-*(Replace this with your actual Render URL.)*
+👉 **https://ai-student-support-service.onrender.com**
 
 ---
-
-# 📸 Screenshots
-
-You can add screenshots of:
-
-- Home Page
-- AI Chatbot
-- Notes Summarizer
-- Quiz Generator
-- Email Writer
-- Study Planner
-- Assignment Helper
-- About Page
 
 ---
 
@@ -235,7 +220,7 @@ https://www.linkedin.com/in/harsh-singh-49653b321/
 
 **Email**
 
-your-email@example.com
+harsh2304singh@gmail.com
 
 ---
 
